@@ -115,7 +115,8 @@ def main():
     # --- SIDEBAR: TEAM CREDITS ---
     with st.sidebar:
         st.title("⚙️ Settings")
-        api_key = st.text_input("Gemini API Key", type="password")
+        api_key = st.text_input("Gemini API Key", type="password") or st.secrets.get("GEMINI_API_KEY")
+
         
         st.markdown("---")
         st.subheader("CREATOR")
@@ -199,4 +200,5 @@ def main():
                 st.markdown(f"<div class='chat-bubble'><b>Agent:</b> {answer}</div>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
+
     main()
